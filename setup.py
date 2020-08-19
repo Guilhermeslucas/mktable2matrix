@@ -12,7 +12,7 @@ setuptools.setup(
     description="Converts markdown table to Matrix",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/guilhermeslucas/mktable2matrix/",
+    url="https://github.com/Guilhermeslucas/mktable2matrix",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
