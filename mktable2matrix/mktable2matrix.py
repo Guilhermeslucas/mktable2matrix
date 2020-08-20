@@ -10,4 +10,3 @@ def to_matrix(table_content):
         matrix_table.append(matrix_line[1:-1])
     
     return matrix_table
-
