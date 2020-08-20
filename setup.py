@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mktable2matrix",
-    version="0.1.0",
+    version="0.1.1",
     author="Guilherme Lucas",
     author_email="guilherme.slucas@gmail.com",
     description="Converts markdown table to Matrix",
