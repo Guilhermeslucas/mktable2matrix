@@ -39,5 +39,12 @@ class TestMkTable2Matrix(unittest.TestCase):
         
         self.assertEqual(returned_output, expected_output)
 
+    def test_markdown_to_table_method_with_headers(self):
+        test_input = '|ha|hb|hc|hd|\n| - | - | - | - |\n|a0|b0|c0|d0|\n|a1|b1|c1|d1|'
+        expected_output = {'ha': ['a0', 'a1'], 'hb': ['b0', 'b1'], 'hc': ['c0', 'c1'], 'hd': ['d0', 'd1']}
+        returned_output = to_dict(test_input)
+        
+        self.assertEqual(returned_output, expected_output)
+
 if __name__ == '__main__':
     unittest.main()
