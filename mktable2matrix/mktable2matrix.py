@@ -3,6 +3,16 @@ def parse_line(line):
     return splitted_line
 
 def to_matrix(table_content, has_headers=True):
+    ''' Method used to convert a markdown table to a array of arrays
+
+    Parameters:
+    table_content (string): markdown table in string format
+    has_headers (bool): flag used to say if the table has headers. Default: true (optional)
+
+    Returns:
+    array: array of arrays containing the content of the table
+
+   '''
     matrix_table = []
     
     if has_headers:
@@ -17,6 +27,15 @@ def to_matrix(table_content, has_headers=True):
     return matrix_table
 
 def to_dict(table_content):
+    ''' Method used to convert a markdown table to a dictionay
+
+    Parameters:
+    table_content (string): markdown table in string format
+
+    Returns:
+    dict: dictionary with the keys being the headers of the table
+
+   '''
     dict_table = {}
     content_splited_on_line_breaks = table_content.split('\n')
     headers = parse_line(content_splited_on_line_breaks[0])
