@@ -25,10 +25,17 @@ class TestMkTable2Matrix(unittest.TestCase):
         
         self.assertEqual(returned_output, expected_output)
         
-    def test_markdown_to_table_method(self):
+    def test_markdown_to_table_method_with_headers(self):
         test_input = '|a|b|c|d|\n| - | - | - | - |\n|a|b|c|d|\n|a|b|c|d|'
         expected_output = [['a', 'b', 'c', 'd'], ['a', 'b', 'c', 'd']]
         returned_output = to_matrix(test_input)
+        
+        self.assertEqual(returned_output, expected_output)
+
+    def test_markdown_to_table_method_without_headers(self):
+        test_input = '|a|b|c|d|\n|a|b|c|d|'
+        expected_output = [['a', 'b', 'c', 'd'], ['a', 'b', 'c', 'd']]
+        returned_output = to_matrix(test_input, has_headers=False)
         
         self.assertEqual(returned_output, expected_output)
 
