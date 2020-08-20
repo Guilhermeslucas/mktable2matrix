@@ -1,6 +1,30 @@
 def parse_line(line):
     splitted_line = line.split('|')
+    
     return splitted_line
+
+def init_dict(headers):
+    dict_table = {}
+    for i in range(len(headers)):
+        dict_table[str(i)] = []
+    
+    return dict_table
+
+def clean_headers(headers):
+    headers[0] = 0
+    headers[len(headers) - 1] = len(headers) - 1
+    
+    return headers
+
+def clean_dict_keys(dict_table, headers):
+    for i in range(len(headers)):
+        dict_table[headers[i]] = dict_table[str(i)]
+        del dict_table[str(i)]
+    
+    del dict_table[0]
+    del dict_table[len(headers) - 1]
+
+    return dict_table
 
 def to_matrix(table_content, has_headers=True):
     ''' Method used to convert a markdown table to a array of arrays
@@ -36,13 +60,9 @@ def to_dict(table_content):
     dict: dictionary with the keys being the headers of the table
 
    '''
-    dict_table = {}
     content_splited_on_line_breaks = table_content.split('\n')
     headers = parse_line(content_splited_on_line_breaks[0])
-
-    for i in range(len(headers)):
-        dict_table[str(i)] = []
-
+    dict_table = init_dict(headers)
     content_without_headers = content_splited_on_line_breaks[2:]
 
     for i in range(len(content_without_headers)):
@@ -50,14 +70,6 @@ def to_dict(table_content):
         for j in range(len(parsed_line)):
             dict_table[str(j)].append(parsed_line[j])
     
-    headers[0] = 0
-    headers[len(headers) - 1] = len(headers) - 1
-
-    for i in range(len(headers)):
-        dict_table[headers[i]] = dict_table[str(i)]
-        del dict_table[str(i)]
+    cleaned_headers = clean_headers(headers)
     
-    del dict_table[0]
-    del dict_table[len(headers) - 1]
-    
-    return dict_table
+    return clean_dict_keys(dict_table, cleaned_headers)
