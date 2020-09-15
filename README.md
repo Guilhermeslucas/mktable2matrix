@@ -1,4 +1,4 @@
-# mktable2matrix
+# mktable2matrix ![Run all tests](https://github.com/Guilhermeslucas/mktable2matrix/workflows/Run%20all%20tests/badge.svg?branch=main)
 
 Python package to convert markdown tables to matrix.
 
